@@ -1,11 +1,15 @@
-- name: Component Triggering
-  on: issue_comment
-  jobs:
-  triage:
+name: Component Triggering
+on: 
+  issue_comment:
+    types:
+      - created
+jobs:
+  trigger-webhook:
     runs-on: ubuntu-latest
+    if: ${{ github.event.issue.pull_request }}
     steps:
       - uses: joelwmale/webhook-action@master
         with:
           url: 'https://gpuci.gpuopenanalytics.com/generic-webhook-trigger/invoke'
           headers: '{"token": "${{ secrets.WEBHOOK_TOKEN }}"}'
-          body: '{"event": "deployment", "repository": "joelwmale/webhook-action"}'
+          body: '{"pr_id": "${{ github.event.issue.id }}". "sha": "${{ github.sha }}"}'
