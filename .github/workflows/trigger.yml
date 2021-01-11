@@ -8,4 +8,4 @@
         with:
           url: 'https://gpuci.gpuopenanalytics.com/generic-webhook-trigger/invoke'
           headers: '{"token": "${{ secrets.WEBHOOK_TOKEN }}"}'
-          body: '{"event": "deployment", "repository": "joelwmale/webhook-action"}'
+          body: '{"pr_id": "${{ github.event.issue.id }}". "sha": "${{ github.sha }}"}'
