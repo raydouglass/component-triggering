@@ -1,8 +1,12 @@
 name: Component Triggering
-on: issue_comment
+on: 
+  issue_comment:
+    types:
+      - created
 jobs:
   trigger-webhook:
     runs-on: ubuntu-latest
+    if: ${{ github.event.issue.pull_request }}
     steps:
       - uses: joelwmale/webhook-action@master
         with:
