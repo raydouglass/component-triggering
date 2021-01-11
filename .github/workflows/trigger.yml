@@ -13,7 +13,7 @@ jobs:
           url: 'https://gpuci.gpuopenanalytics.com/generic-webhook-trigger/invoke'
           headers: '{"token": "${{ secrets.WEBHOOK_TOKEN }}"}'
           body: |
-            '{
+            {
             "pr_id": "${{ github.event.issue.number }}",
             "commit_hash": "${{ github.sha }}",
             "report_hash": "pull/${{ github.event.issue.number }}/head",
@@ -22,4 +22,4 @@ jobs:
             "target_branch": "",
             "flash_id": "${{ github.event.issue.number }}",
             "repository": "${{ github.repository.full_name }}"
-            }'
+            }
