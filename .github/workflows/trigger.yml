@@ -18,8 +18,8 @@ jobs:
             "commit_hash": "${{ github.sha }}",
             "report_hash": "pull/${{ github.event.issue.number }}/head",
             "pr_author": "${{ github.event.issue.user.login }}",
-            "source_branch": "",
-            "target_branch": "",
+            "source_branch": "${{ github.event.issue.head.ref }}",
+            "target_branch": "${{ github.event.issue.base.ref }}",
             "flash_id": "${{ github.event.issue.number }}",
             "repository": "${{ github.event.repository.full_name }}"
             }
