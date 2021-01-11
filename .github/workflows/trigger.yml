@@ -15,7 +15,7 @@ jobs:
           body: |
             {
             "pr_id": "${{ github.event.issue.number }}",
-            "commit_hash": "${{ github.sha }}",
+            "commit_hash": "pull/${{ github.event.issue.number }}/merge",
             "report_hash": "pull/${{ github.event.issue.number }}/head",
             "pr_author": "${{ github.event.issue.user.login }}",
             "source_branch": "${{ github.event.issue.head.ref }}",
