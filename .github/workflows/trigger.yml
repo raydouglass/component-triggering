@@ -1,0 +1,11 @@
+- name: Component Triggering
+  on: issue_comment
+  jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: joelwmale/webhook-action@master
+        with:
+          url: 'https://gpuci.gpuopenanalytics.com/generic-webhook-trigger/invoke'
+          headers: '{"token": "${{ secrets.WEBHOOK_TOKEN }}"}'
+          body: '{"event": "deployment", "repository": "joelwmale/webhook-action"}'
