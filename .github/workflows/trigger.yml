@@ -1,7 +1,7 @@
-- name: Component Triggering
-  on: issue_comment
-  jobs:
-  triage:
+name: Component Triggering
+on: issue_comment
+jobs:
+  trigger-webhook:
     runs-on: ubuntu-latest
     steps:
       - uses: joelwmale/webhook-action@master
